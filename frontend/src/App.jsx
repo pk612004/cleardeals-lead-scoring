@@ -52,7 +52,9 @@ const App = () => {
         num_catalog_purchases: Number(formData.num_catalog_purchases),
       };
 
-      const res = await axios.post("http://127.0.0.1:8000/score", payload);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/score`, payload);
+
+
       setResponse(res.data);
       setError(null);
       setSubmittedLeads((prev) => [...prev, res.data]);
